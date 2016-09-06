@@ -1,7 +1,7 @@
 package com.jpmorgan.model;
 
 import com.jpmorgan.beans.Trade;
-import com.jpmorgan.test.StockPredicate;
+import com.jpmorgan.utils.StockPredicate;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.math3.stat.StatUtils;
 import org.apache.log4j.Logger;

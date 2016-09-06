@@ -1,4 +1,4 @@
-package com.jpmorgan.test;
+package com.jpmorgan.utils;
 
 
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.jpmorgan.test;
+package com.jpmorgan.utils;
 
 import com.jpmorgan.beans.Trade;
 import com.jpmorgan.model.Instrument;
