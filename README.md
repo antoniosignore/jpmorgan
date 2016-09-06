@@ -22,18 +22,22 @@ The instruments are populated with quotes (Daily.java) in date and time.
 
 Adding trades to a portfolio will add/remove items in the portoflio.
 
-So I created the 5 stocks, created few trades and added in the portfolio.
+So I created the 5 stocks, created few trades and added the trades in the portfolio.
 
 The resulting portfolio had then 5 stocks positions in it and few quotes in it.
 
-That demonstrates that I can hold treades (the portfolio is the basket)
+That demonstrates that I can hold trades (the portfolio is the basket) which was one of the requirements.
 
-The I calculated the 2 measure per stock (yield and pe ratio), the 2 measures per positions in the portfolio.
+Then I calculated the 2 measure per stock (yield and pe ratio), the 2 measures per positions in the portfolio.
  
 It should work...of course more testing is required.
  
 Test coverage is not terrible considering that I haev taken some precooked classes from an old groovy project 
 I worked few years ago when I was trying to build trading systems. Lots of room for improvement there...
+
+The relevant specific Unit Test case is the class:
+
+    src/test/com/jpmorgan/test/StockTest
 
 
 
