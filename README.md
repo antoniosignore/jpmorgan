@@ -5,16 +5,16 @@ GitHub has plenty of project that provide a resolution for the this exercise. Ju
 
     github super simple stock
 
-and you get a lot of preject.
+and you get a lot of project.
 
 I did go through some of them and went my own way with the exception of taking the precooked formula and the 
 StockPredicate (which I found nice) from :
 
     https://github.com/jainebri/Super-Simple-Stocks   <--- (Credits)
     
-To be honest it is more confusing than helpful..not being the formula clearly the complexita, so I went my own way.
+To be honest it is more confusing than helpful..not being the formula clearly the complexity so I tried a different approach:.
 
-My take was to try to model the problem like a financial firm would do it:
+    model the problem like a financial firm would do it:
 
 You have a portofolio which is a basket of financial instruments (for this exercise only the asset class Stock)
  
