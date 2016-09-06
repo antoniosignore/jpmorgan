@@ -1,7 +1,5 @@
-# jpmorgan
+# jpmorgan test
 
-
-Few comments
 
 GitHub has plenty of project that provide a resolution for the this exercise. Just execute in Google the following search
 
