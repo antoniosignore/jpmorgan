@@ -4,7 +4,7 @@ public enum TradeEnum {
 
     SELLSHORT("Sell Short"),
     SELL("Sell"),
-    HOLD("Sold"),
+    HOLD("Hold"),
     BUY("Buy"),
     BUYSHORT("Buy Short");
 
@@ -18,7 +18,4 @@ public enum TradeEnum {
         return value;
     }
 
-    public String getKey() {
-        return name();
-    }
 }

@@ -161,10 +161,6 @@ public class Portfolio extends Asset implements Serializable {
     }
 
 
-    /*
-     * (non-Javadoc)
-     * @see com.jpmorgan.stocks.simple.services.SimpleStockService#calculateStockPrice()
-     */
     public double calculateStockPrice(Stock stock) {
         double stockPrice = 0.0;
 

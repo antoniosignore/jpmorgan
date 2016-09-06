@@ -67,56 +67,28 @@ public class Daily implements Serializable {
         return dailydate;
     }
 
-    public void setDailydate(Date dailydate) {
-        this.dailydate = dailydate;
-    }
-
     public int getVolume() {
         return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
     }
 
     public double getHigh() {
         return high;
     }
 
-    public void setHigh(double high) {
-        this.high = high;
-    }
-
     public double getLow() {
         return low;
-    }
-
-    public void setLow(double low) {
-        this.low = low;
     }
 
     public double getOpenprice() {
         return openprice;
     }
 
-    public void setOpenprice(double openprice) {
-        this.openprice = openprice;
-    }
-
     public double getCloseprice() {
         return closeprice;
     }
 
-    public void setCloseprice(double closeprice) {
-        this.closeprice = closeprice;
-    }
-
     public int getOpenInterest() {
         return openInterest;
-    }
-
-    public void setOpenInterest(int openInterest) {
-        this.openInterest = openInterest;
     }
 
     @Override

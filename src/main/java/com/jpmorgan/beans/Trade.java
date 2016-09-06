@@ -44,48 +44,24 @@ public class Trade implements Serializable {
         return instrument;
     }
 
-    public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
-    }
-
     public TradeEnum getTradeAction() {
         return tradeAction;
-    }
-
-    public void setTradeAction(TradeEnum tradeAction) {
-        this.tradeAction = tradeAction;
     }
 
     public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
     public Double getPrice() {
         return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Double getCost() {
         return cost;
     }
 
-    public void setCost(Double cost) {
-        this.cost = cost;
-    }
-
     public Date getTradeDate() {
         return tradeDate;
-    }
-
-    public void setTradeDate(Date tradeDate) {
-        this.tradeDate = tradeDate;
     }
 
     @Override

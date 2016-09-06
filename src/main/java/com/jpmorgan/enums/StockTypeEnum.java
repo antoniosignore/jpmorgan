@@ -15,7 +15,4 @@ public enum StockTypeEnum {
         return value;
     }
 
-    public String getKey() {
-        return name();
-    }
 }
