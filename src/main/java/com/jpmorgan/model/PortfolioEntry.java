@@ -58,4 +58,32 @@ public class PortfolioEntry implements Serializable {
         return instrument.getLast() * amount;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PortfolioEntry that = (PortfolioEntry) o;
+
+        if (!portfolio.equals(that.portfolio)) return false;
+        if (!instrument.equals(that.instrument)) return false;
+        return amount.equals(that.amount);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = portfolio.hashCode();
+        result = 31 * result + instrument.hashCode();
+        result = 31 * result + amount.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PortfolioEntry{" +
+                ", instrument=" + instrument +
+                ", amount=" + amount +
+                '}';
+    }
 }

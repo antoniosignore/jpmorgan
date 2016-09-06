@@ -28,6 +28,18 @@ public class Portfolio extends Asset implements Serializable {
         super(name);
     }
 
+    @Override
+    public double getDividendYield() {
+        // todo can we calculate this measure for a portfolio ?
+        return 0;
+    }
+
+    @Override
+    public double getPeRatio() {
+        // todo can we calculate this measure for a portfolio ?
+        return 0;
+    }
+
     public List<PortfolioEntry> getItems() {
         return items;
     }
@@ -179,4 +191,15 @@ public class Portfolio extends Asset implements Serializable {
         return stockPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Portfolio{" +
+                "description='" + description + '\'' +
+                ", wealth=" + wealth +
+                ", firstDate=" + firstDate +
+                ", lastDate=" + lastDate +
+                ", items=" + items +
+                ", trades=" + trades +
+                '}';
+    }
 }

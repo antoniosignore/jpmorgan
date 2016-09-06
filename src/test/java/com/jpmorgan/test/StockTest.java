@@ -151,52 +151,59 @@ public class StockTest {
                 .setTradeDate(date5)
                 .build());
 
-        System.out.println("trades = " + portfolio.getTrades().toString());
-
-    }
-
-    @Test
-    public void testSimpleStock() {
-
-        /*
-        a. For a given stock,
-        i. calculate the dividend yield
-        ii. calculate the P/E Ratio
-        iii. record a trade, with timestamp, quantity of shares, buy or sell indicator and price
-        iv. Calculate Stock Price based on trades recorded in past 15 minutes
-        b. Calculate the GBCE All Share Index using the geometric mean of prices for all stocks
-      */
-
-        Assert.assertEquals(5, portfolio.getItems().size());
-        portfolio.getItems().forEach(it -> {
-                    Stock stock = (Stock) it.getInstrument();
-                    System.out.println("stock.getTicker() = " + stock.getTicker());
-
-                    //    i. calculate the dividend yield
-                    System.out.println(stock.getDividendYield());
-
-                    //    ii. calculate the P/E Ratio
-                    System.out.println(stock.getPeRatio());
-                }
-        );
-
-        Assert.assertEquals(5, portfolio.getTrades().size());
         portfolio.getTrades().forEach(trade -> {
-                    // iii. record a trade, with timestamp, quantity of shares, buy or sell indicator and price
                     System.out.println("trade = " + trade);
 
                 }
         );
 
+        Assert.assertEquals("Tea", portfolio.getItems().get(0).getInstrument().getName());
+        Assert.assertEquals("Pop", portfolio.getItems().get(1).getInstrument().getName());
+        Assert.assertEquals("Joe", portfolio.getItems().get(2).getInstrument().getName());
+        Assert.assertEquals("Ale", portfolio.getItems().get(3).getInstrument().getName());
+        Assert.assertEquals("Ginger", portfolio.getItems().get(4).getInstrument().getName());
+
+        Assert.assertEquals(5, portfolio.getItems().size());
+        portfolio.getItems().forEach(it -> {
+                    Stock stock = (Stock) it.getInstrument();
+                    System.out.println("stock.getTicker() = " + stock.getTicker());
+                    System.out.println(stock.getDividendYield());
+                    System.out.println(stock.getPeRatio());
+                }
+        );
+    }
+
+    @Test
+    public void testSimpleStock() {
+
+        //    i. calculate the dividend yield
+        Assert.assertEquals(0.0D, portfolio.getItems().get(0).getInstrument().getDividendYield(), 0);
+        Assert.assertEquals(1.1428571428571428D, portfolio.getItems().get(1).getInstrument().getDividendYield(), 0);
+        Assert.assertEquals(1.8571428571428572, portfolio.getItems().get(2).getInstrument().getDividendYield(), 0);
+        Assert.assertEquals(3.2857142857142856, portfolio.getItems().get(3).getInstrument().getDividendYield(), 0);
+        Assert.assertEquals(0.2857142857142857, portfolio.getItems().get(4).getInstrument().getDividendYield(), 0);
+
+        //    ii. calculate the P/E Ratio
+        Assert.assertEquals(0.0D, portfolio.getItems().get(0).getInstrument().getDividendYield(), 0);
+        Assert.assertEquals(6.125, portfolio.getItems().get(1).getInstrument().getPeRatio(), 0);
+        Assert.assertEquals(3.769230769230769, portfolio.getItems().get(2).getInstrument().getPeRatio(), 0);
+        Assert.assertEquals(2.130434782608696, portfolio.getItems().get(3).getInstrument().getPeRatio(), 0);
+        Assert.assertEquals(24.5, portfolio.getItems().get(4).getInstrument().getPeRatio(), 0);
+
+        // iii. record a trade, with timestamp, quantity of shares, buy or sell indicator and price
+        Assert.assertEquals(5, portfolio.getTrades().size());
+
 
         // iv. Calculate Stock Price based on trades recorded in past 15 minutes
-        System.out.println("v = " + portfolio.calculateStockPrice(TEA));
+        // we expect the same value being ony 1 rhe trade that should get into the computation
+        Assert.assertEquals(5.0, portfolio.calculateStockPrice(TEA), 0);
+        Assert.assertEquals(5.0, portfolio.calculateStockPrice(GIN), 0);
+        Assert.assertEquals(5.0, portfolio.calculateStockPrice(ALE), 0);
+        Assert.assertEquals(5.0, portfolio.calculateStockPrice(JOE), 0);
+        Assert.assertEquals(5.0, portfolio.calculateStockPrice(POP), 0);
 
         // b. Calculate the GBCE All Share Index using the geometric mean of prices for all stocks
-
-        double v = portfolio.calculateAllShareIndex();
-        System.out.println("v = " + v);
-
+        Assert.assertEquals(5, portfolio.calculateAllShareIndex(), 0.0001);
 
     }
 

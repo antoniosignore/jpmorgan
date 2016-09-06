@@ -10,7 +10,7 @@ import java.util.Date;
 
 import static com.jpmorgan.enums.PriceEnum.*;
 
-public class Instrument {
+public abstract class Instrument {
 
     private GenericTimeSeries<Daily> dailyarray;
 
@@ -59,6 +59,10 @@ public class Instrument {
         this.name = name;
         dailyarray = new GenericTimeSeries<>();
     }
+
+    public abstract double getDividendYield();
+
+    public abstract double getPeRatio();
 
     public GenericTimeSeries<Daily> getDailyarray() {
         return dailyarray;
@@ -819,4 +823,35 @@ public class Instrument {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Instrument{" +
+                "dailyarray=" + dailyarray +
+                ", name='" + name + '\'' +
+                ", priceSeries=" + priceSeries +
+                ", returnSeries=" + returnSeries +
+                ", logReturnSeries=" + logReturnSeries +
+                ", highSeries=" + highSeries +
+                ", lowSeries=" + lowSeries +
+                ", openSeries=" + openSeries +
+                ", closeSeries=" + closeSeries +
+                ", volumeSeries=" + volumeSeries +
+                ", volumeReturnSeries=" + volumeReturnSeries +
+                ", volumeLogReturnSeries=" + volumeLogReturnSeries +
+                ", marketSpotShift=" + marketSpotShift +
+                ", marketVolatilityShift=" + marketVolatilityShift +
+                ", delta=" + delta +
+                ", spot=" + spot +
+                ", volatility=" + volatility +
+                ", isSpotFixed=" + isSpotFixed +
+                ", isVolatilityFixed=" + isVolatilityFixed +
+                ", tempToday=" + tempToday +
+                ", tempSpot=" + tempSpot +
+                ", tempVolatility=" + tempVolatility +
+                ", isTempSpotFixed=" + isTempSpotFixed +
+                ", isTempVolatilityFixed=" + isTempVolatilityFixed +
+                ", lowerRangeDate=" + lowerRangeDate +
+                ", upperRangeDate=" + upperRangeDate +
+                '}';
+    }
 }
