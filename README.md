@@ -30,9 +30,9 @@ The resulting portfolio had then 5 stocks positions in it and few quotes in it.
 
 That demonstrates that I can hold treades (the portfolio is the basket)
 
-The I calculated the 2 measure per stock (yield and pE ratio), the 2 measures per positions in the portfolio.
+The I calculated the 2 measure per stock (yield and pe ratio), the 2 measures per positions in the portfolio.
  
-It shoudl work...of course more testing is required.
+It should work...of course more testing is required.
  
 Test coverage is not terrible considering that I haev taken some precooked classes from an old groovy project 
 I worked few years ago when I was trying to build trading systems. Lots of room for improvement there...
