@@ -2,8 +2,8 @@ package com.jpmorgan.model;
 
 import com.jpmorgan.beans.Daily;
 import com.jpmorgan.enums.PriceEnum;
-import com.jpmorgan.test.GenericTimeSeries;
-import com.jpmorgan.test.TimeSeries;
+import com.jpmorgan.business.GenericTimeSeries;
+import com.jpmorgan.business.TimeSeries;
 import com.jpmorgan.utils.DateUtils;
 
 import java.util.Date;
@@ -12,10 +12,9 @@ import static com.jpmorgan.enums.PriceEnum.*;
 
 public abstract class Instrument {
 
+    public double delta = 1D;
     private GenericTimeSeries<Daily> dailyarray;
-
     private String name;
-
     private TimeSeries priceSeries = null;
     private TimeSeries returnSeries = null;
     private TimeSeries logReturnSeries = null;
@@ -26,10 +25,8 @@ public abstract class Instrument {
     private TimeSeries volumeSeries = null;
     private TimeSeries volumeReturnSeries = null;
     private TimeSeries volumeLogReturnSeries = null;
-
     private double marketSpotShift = 1.0;
     private double marketVolatilityShift = 1.0;
-    private double delta = 1D;
     private double spot;
     private double volatility;
     private boolean isSpotFixed;
@@ -42,6 +39,7 @@ public abstract class Instrument {
 
     private Date lowerRangeDate;
     private Date upperRangeDate;
+
 
     public Instrument(String name) {
         isSpotFixed = false;
@@ -633,6 +631,49 @@ public abstract class Instrument {
         return standardDeviation() * Math.sqrt(365.0);
     }
 
+
+    public double getCovariance(Instrument instrument) {
+        return getCovariance(instrument, PriceEnum.RETURN);
+    }
+
+    public double getCovariance(Instrument instrument, PriceEnum option) {
+        double Covariance = 0;
+        switch (option) {
+            case RETURN:
+                Covariance = getReturnSeries().getCovariance(instrument.getReturnSeries(),
+                        instrument.firstDate(), instrument.lastDate());
+                break;
+            case LOGRETURN:
+                Covariance = logReturnSeries().getCovariance(instrument.logReturnSeries(), instrument.firstDate(), instrument.lastDate());
+                break;
+        }
+        return Covariance;
+    }
+
+    public double getCorrelation(Instrument instrument) {
+        return getCorrelation(instrument, PriceEnum.RETURN);
+    }
+
+    public double getCorrelation(Instrument instrument, PriceEnum option) {
+        double Correlation = 0;
+        switch (option) {
+            case RETURN:
+                Correlation = getReturnSeries().getCorrelation(instrument.getReturnSeries(), instrument.firstDate(), instrument.lastDate());
+                break;
+            case LOGRETURN:
+                Correlation = logReturnSeries().getCorrelation(instrument.logReturnSeries(), instrument.firstDate(), instrument.lastDate()
+                );
+                break;
+        }
+        return Correlation;
+    }
+
+    public int getNCorrelationPairs(Instrument instrument) {
+        return getReturnSeries().getNCorrelationPairs(instrument.getReturnSeries(), instrument.firstDate(), instrument.lastDate());
+    }
+
+
+
     public Date firstDay() {
         return firstDailyDate();
     }
@@ -823,6 +864,24 @@ public abstract class Instrument {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /*
+        public double getCovariance(Instrument instrument, PriceEnum option) {
+            double Covariance = 0;
+            switch (option) {
+                case RETURN:
+                    Covariance = getReturnSeries().getCovariance(instrument.logReturnSeries());
+                    break;
+                case LOGRETURN:
+                    Covariance = logReturnSeries().getCovariance(instrument.logReturnSeries());
+                    break;
+            }
+            return Covariance;
+        }
+    */
     @Override
     public String toString() {
         return "Instrument{" +

@@ -1,5 +1,6 @@
 package com.jpmorgan.model;
 
+import Jama.Matrix;
 import com.jpmorgan.beans.Trade;
 import com.jpmorgan.utils.StockPredicate;
 import org.apache.commons.collections.CollectionUtils;
@@ -14,13 +15,13 @@ import java.util.List;
 
 public class Portfolio extends Asset implements Serializable {
 
+    Matrix covarianceMatrix;
+    Matrix correlationMatrix;
     private Logger logger = Logger.getLogger(Portfolio.class);
-
     private String description;
     private double wealth = 0;
     private Date firstDate;
     private Date lastDate;
-
     private List<PortfolioEntry> items = new ArrayList<>();
     private List<Trade> trades = new ArrayList<>();
 
@@ -185,6 +186,22 @@ public class Portfolio extends Asset implements Serializable {
 
 
         return stockPrice;
+    }
+
+    public Matrix getCovarianceMatrix() {
+        return covarianceMatrix;
+    }
+
+    public void setCovarianceMatrix(Matrix covarianceMatrix) {
+        this.covarianceMatrix = covarianceMatrix;
+    }
+
+    public Matrix getCorrelationMatrix() {
+        return correlationMatrix;
+    }
+
+    public void setCorrelationMatrix(Matrix correlationMatrix) {
+        this.correlationMatrix = correlationMatrix;
     }
 
     @Override

@@ -79,7 +79,15 @@ public class DateUtils {
     }
 
     public static boolean isGreater(Date d1, Date d) {
-        if (d1.compareTo(d) > 0) return true;
+        return d1.compareTo(d) > 0;
+    }
+
+    public static Date nextDay(Date date) {
+        return addDays(date, 1);
+    }
+
+    public static boolean isEqual(Date d1, Date d) {
+        if (d1.compareTo(d) == 0) return true;
         return false;
     }
 

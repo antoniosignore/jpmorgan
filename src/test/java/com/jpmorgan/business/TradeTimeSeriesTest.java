@@ -1,4 +1,4 @@
-package com.jpmorgan.test;
+package com.jpmorgan.business;
 
 import com.jpmorgan.beans.Daily;
 import com.jpmorgan.beans.Trade;

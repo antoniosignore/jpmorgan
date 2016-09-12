@@ -1,5 +1,6 @@
 package com.jpmorgan.beans;
 
+
 import com.jpmorgan.enums.PriceEnum;
 
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.jpmorgan.test;
+package com.jpmorgan.business;
 
 import com.jpmorgan.beans.Daily;
 import com.jpmorgan.beans.Trade;
@@ -24,7 +24,7 @@ public class StockTest {
     public static final String FIRST_DATE = "2016-01-02 08:00:00";
     public static final String LAST_DATE = "2016-01-02 08:20:00";
 
-    PortfolioService portfolioService = new PortfolioServiceImpl();
+    PortfolioService portfolioService = new PortfolioService();
 
     Stock TEA;
     Stock POP;
