@@ -10,14 +10,9 @@ import java.util.*;
 public class TimeSeries implements Serializable {
 
     protected int[] lengthsArray = null;
-    String username;
     String name;
-    String description;
-    boolean active = true;
-    Date created = new Date();
     GenericMatrix<Double> matrix;
     private PriceEnum option;
-    private int size = 0;
     private int correlationPairs = 0;
 
     public TimeSeries() {

@@ -790,7 +790,7 @@ public class PortfolioService {
         return portfolio.delta;
     }
 
-    // todo checck on dtmcCentral project
+    // todo check on dtmcCentral project
     public double getBeta(Portfolio portfolio, Instrument index) {
         return getCovariance(portfolio, 0, 0) / index.getVariance(PriceEnum.TYPICALPRICE);
 

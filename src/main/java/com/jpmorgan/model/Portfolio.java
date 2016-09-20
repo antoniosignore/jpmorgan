@@ -15,9 +15,10 @@ import java.util.List;
 
 public class Portfolio extends Asset implements Serializable {
 
-    Matrix covarianceMatrix;
-    Matrix correlationMatrix;
     private Logger logger = Logger.getLogger(Portfolio.class);
+
+    private Matrix covarianceMatrix;
+    private Matrix correlationMatrix;
     private String description;
     private double wealth = 0;
     private Date firstDate;
@@ -183,8 +184,6 @@ public class Portfolio extends Asset implements Serializable {
             throw new RuntimeException("Error calculating P/E Ratio for the stock symbol: " + stock + ".", exception);
 
         }
-
-
         return stockPrice;
     }
 
